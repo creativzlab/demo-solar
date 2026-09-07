@@ -515,7 +515,6 @@ html.reveal-enabled [data-reveal].is-revealed {
 }
 .budget-button--financing { min-width: 340px; margin-top: 28px; }
 /* Funnel */
-.modal-open chat-widget { visibility: hidden !important; pointer-events: none !important; }
 .funnel-backdrop { position: fixed; inset: 0; z-index: 100; padding: 26px; display: grid; place-items: center; background: rgba(5,5,6,.82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); animation: fade-in .2s ease; }
 .funnel-dialog { width: min(1120px, 100%); height: min(780px, calc(100dvh - 52px)); max-height: 850px; border: 1px solid rgba(255,255,255,.16); border-radius: 34px; position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(350px, .92fr) minmax(0, 1.08fr); background: #fff; box-shadow: 0 34px 110px rgba(0,0,0,.42); }
 .funnel-tip { min-width: 0; position: relative; isolation: isolate; overflow: hidden; color: #fff; background: linear-gradient(150deg, #090806 0%, #070707 54%, #0b0907 100%); }

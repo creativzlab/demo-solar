@@ -1,5 +1,5 @@
 import { leadSchema } from "@/lib/lead-schema";
-import { isRateLimited, requestFingerprint, sendLeadToDsi } from "@/lib/lead-service";
+import { acceptDemoLead, isRateLimited, requestFingerprint } from "@/lib/lead-service";
 
 export const runtime = "nodejs";
 
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const result = await sendLeadToDsi(parsed.data);
+    const result = await acceptDemoLead();
     return Response.json({ ok: true, demoMode: result.demoMode });
   } catch (caught) {
     console.error(

@@ -5,21 +5,16 @@ import { fileURLToPath } from "node:url";
 const projectRoot = dirname(fileURLToPath(import.meta.url));
 
 const isDevelopment = process.env.NODE_ENV === "development";
-const highLevelWidgetOrigin = "https://widgets.leadconnectorhq.com";
-const highLevelApiOrigin = "https://services.leadconnectorhq.com";
-const highLevelRealtimeOrigin = "wss://services.leadconnectorhq.com";
-const highLevelStaticOrigin = "https://stcdn.leadconnectorhq.com";
-const highLevelMediaOrigin = "https://assets.cdn.filesafe.space";
 const cloudinaryMediaOrigin = "https://res.cloudinary.com";
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' ${highLevelWidgetOrigin} ${highLevelApiOrigin} ${highLevelStaticOrigin}${isDevelopment ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  `img-src 'self' data: blob: ${highLevelWidgetOrigin} ${highLevelMediaOrigin}`,
+  "img-src 'self' data: blob:",
   "font-src 'self' data: https://fonts.gstatic.com",
   `media-src 'self' ${cloudinaryMediaOrigin}`,
-  `connect-src 'self' ${cloudinaryMediaOrigin} ${highLevelApiOrigin} ${highLevelRealtimeOrigin} ${highLevelWidgetOrigin} ${highLevelStaticOrigin}${isDevelopment ? " ws: wss:" : ""}`,
-  `frame-src ${highLevelWidgetOrigin}`,
+  `connect-src 'self' ${cloudinaryMediaOrigin}${isDevelopment ? " ws: wss:" : ""}`,
+  "frame-src 'none'",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
