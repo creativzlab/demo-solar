@@ -1,0 +1,101 @@
+.card {
+  position: relative;
+  min-width: 0;
+  height: 310px;
+  border-radius: 28px;
+  outline: none;
+  transform-style: preserve-3d;
+}
+
+.surface {
+  position: absolute;
+  inset: 13px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .56);
+  border-radius: 22px;
+  box-shadow: 0 20px 54px rgba(78, 35, 7, .17), 0 3px 10px rgba(78, 35, 7, .08);
+  transform-style: preserve-3d;
+  transition: box-shadow 280ms ease;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.scrim,
+.accent,
+.content {
+  z-index: 1;
+}
+
+.card:hover .surface {
+  box-shadow: 0 30px 74px rgba(132, 54, 0, .24), 0 5px 16px rgba(78, 35, 7, .1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover { will-change: transform; }
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(28, 12, 3, .05) 10%, rgba(28, 12, 3, .2) 46%, rgba(28, 12, 3, .9) 100%);
+}
+
+.accent {
+  position: absolute;
+  top: 0;
+  left: 28px;
+  width: 58px;
+  height: 4px;
+  border-radius: 0 0 999px 999px;
+  background: linear-gradient(90deg, #ff9a1f, #ff6b00, #e94f00);
+  box-shadow: 0 4px 18px rgba(255, 107, 0, .45);
+}
+
+.content {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: white;
+  transform-style: preserve-3d;
+}
+
+.icon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(145deg, rgba(255, 154, 31, .94), rgba(233, 79, 0, .92));
+  box-shadow: 0 12px 30px rgba(117, 42, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .35);
+}
+
+.icon svg { width: 25px; height: 25px; stroke-width: 1.9; }
+
+.content h3 {
+  margin: 0;
+  font-family: var(--font-site);
+  font-size: var(--type-t3);
+  font-weight: 650;
+  line-height: var(--leading-t3);
+  letter-spacing: -.018em;
+  text-wrap: balance;
+}
+
+@media (max-width: 760px) {
+  .card { height: 290px; }
+  .surface { inset: 9px; }
+  .content { padding: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { will-change: auto; }
+  .surface { transition: none; }
+}

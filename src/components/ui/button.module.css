@@ -1,0 +1,67 @@
+.button {
+  position: relative;
+  isolation: isolate;
+  max-width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .34);
+  color: white;
+  background: linear-gradient(135deg, #ff9a1f 0%, #ff7a00 45%, #f15300 100%);
+  box-shadow: 0 16px 36px rgba(185, 71, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .28);
+  cursor: pointer;
+  transition: transform 260ms cubic-bezier(.16, 1, .3, 1), box-shadow 260ms ease, border-color 260ms ease;
+}
+
+.button:hover {
+  border-color: rgba(255, 255, 255, .58);
+  box-shadow: 0 22px 48px rgba(185, 71, 0, .38), inset 0 1px 0 rgba(255, 255, 255, .34);
+  transform: translateY(-2px) scale(1.015);
+}
+
+.button:active { transform: translateY(0) scale(.98); }
+.button:disabled { opacity: .62; cursor: wait; transform: none; }
+
+.sm { min-height: 46px; padding: 7px; border-radius: 15px; }
+.md { min-height: 58px; padding: 9px; border-radius: 19px; }
+.lg { min-height: 70px; padding: 12px; border-radius: 23px; }
+
+.movingGradient {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, transparent 15%, rgba(255, 255, 255, .38) 48%, transparent 82%);
+  transform: translateX(-115%);
+  transition: transform 900ms cubic-bezier(.16, 1, .3, 1);
+}
+
+.button:hover .movingGradient { transform: translateX(115%); }
+
+.glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 28% 0%, rgba(255, 255, 255, .24), transparent 46%);
+  opacity: .55;
+  transition: opacity 260ms ease;
+}
+
+.button:hover .glow { opacity: 1; }
+
+.content { display: flex; align-items: center; justify-content: center; }
+
+.copy { min-width: 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.title { font-size: 14px; font-weight: 700; line-height: 1.16; }
+.subtitle { margin-top: 3px; color: rgba(255, 255, 255, .74); font-size: 11px; line-height: 1.25; }
+
+.sm .title { font-size: 12px; }
+.lg .title { font-size: 16px; }
+
+@media (max-width: 420px) {
+  .md { padding: 10px; }
+  .md .title { font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button, .movingGradient, .glow { transition: none; }
+  .button:hover, .button:active { transform: none; }
+  .button:hover .movingGradient { transform: translateX(-115%); }
+}

@@ -1,0 +1,35 @@
+.root {
+  width: 100%;
+  min-height: 720px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(2, 6, 23, 0.1), rgba(2, 6, 23, 0.72)),
+    #08090b;
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle 600px at 50% 80px, rgba(255, 107, 0, 0.34), transparent 68%),
+    radial-gradient(circle 520px at 12% 70%, rgba(255, 138, 0, 0.1), transparent 72%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 38%);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 760px) {
+  .root { min-height: 0; }
+  .glow {
+    background:
+      radial-gradient(circle 420px at 50% 70px, rgba(255, 107, 0, 0.3), transparent 72%),
+      #08090b;
+  }
+}

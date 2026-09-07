@@ -1,0 +1,44 @@
+.ribbon {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  background: linear-gradient(110deg, #ff9a1f 0%, #ff6b00 48%, #e94f00 100%);
+  box-shadow: 0 16px 42px rgba(185, 71, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.track {
+  width: max-content;
+  min-width: 250%;
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  font-size: clamp(11px, 0.82vw, 13px);
+  font-weight: 850;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.item::after {
+  content: "✦";
+  margin: 0 24px;
+  font-size: 0.78em;
+  opacity: 0.88;
+}
+
+@media (max-width: 760px) {
+  .track { min-width: 420%; padding-block: 14px; }
+  .item { font-size: 10px; letter-spacing: 0.18em; }
+  .item::after { margin-inline: 18px; }
+}

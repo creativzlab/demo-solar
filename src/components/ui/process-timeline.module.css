@@ -1,0 +1,250 @@
+.timeline {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  isolation: isolate;
+}
+
+.rail {
+  position: absolute;
+  z-index: 0;
+  top: 22px;
+  bottom: 148px;
+  left: 21px;
+  width: 3px;
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+.railBase,
+.railProgress {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  border-radius: inherit;
+}
+
+.railBase {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, .06), rgba(255, 255, 255, .2) 10%, rgba(255, 255, 255, .14) 88%, rgba(255, 255, 255, .04));
+}
+
+.railProgress {
+  transform-origin: top center;
+  background: linear-gradient(to bottom, #ffb05b 0%, #ff8a00 28%, #ff5600 100%);
+  box-shadow: 0 0 18px rgba(255, 107, 0, .72), 0 0 38px rgba(255, 107, 0, .28);
+}
+
+.list {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 106px minmax(0, 1fr);
+  gap: 20px;
+  min-height: clamp(300px, 39vh, 380px);
+  align-items: start;
+}
+
+.item:last-child {
+  min-height: 170px;
+}
+
+.nodeColumn,
+.stepLabel {
+  align-self: start;
+}
+
+.nodeColumn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  min-height: 44px;
+}
+
+.node {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 999px;
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 0 0 6px #0a0a0c, 0 12px 30px rgba(0, 0, 0, .35);
+}
+
+.stepLabel {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1px;
+  font-family: var(--font-site);
+  line-height: 1;
+}
+
+.stepLabel span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.stepLabel strong {
+  margin-top: 8px;
+  color: currentColor;
+  font-size: clamp(30px, 3vw, 46px);
+  font-weight: 720;
+  letter-spacing: -.06em;
+}
+
+.card {
+  width: 100%;
+  max-width: 460px;
+  min-height: 170px;
+  justify-self: end;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+  padding: 24px 26px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 100% 0, rgba(255, 119, 0, .13), transparent 46%),
+    linear-gradient(145deg, rgba(37, 29, 25, .9), rgba(14, 14, 16, .94));
+  box-shadow: 0 30px 78px rgba(0, 0, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .07);
+  backdrop-filter: blur(18px) saturate(112%);
+  -webkit-backdrop-filter: blur(18px) saturate(112%);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 138, 0, .35);
+  border-radius: 14px;
+  color: #ff8a00;
+  background: rgba(255, 107, 0, .1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 16px 32px rgba(255, 80, 0, .1);
+}
+
+.icon svg {
+  width: 21px;
+  height: 21px;
+  stroke-width: 1.8;
+}
+
+.card h3 {
+  margin: 1px 0 12px;
+  color: white;
+  font-family: var(--font-site);
+  font-size: clamp(23px, 2.2vw, 30px);
+  font-weight: 680;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+
+.card p {
+  max-width: 43ch;
+  margin: 0;
+  color: rgba(255, 255, 255, .66);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+@media (max-width: 1180px) {
+  .card {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 760px) {
+  .rail {
+    top: 18px;
+    bottom: 202px;
+    left: 15px;
+    width: 2px;
+  }
+
+  .item {
+    grid-template-columns: 30px 52px minmax(0, 1fr);
+    gap: 10px;
+    min-height: 340px;
+  }
+
+  .item:last-child {
+    min-height: 220px;
+  }
+
+  .nodeColumn {
+    width: 30px;
+    min-height: 34px;
+  }
+
+  .node {
+    width: 28px;
+    height: 28px;
+    font-size: 9px;
+    box-shadow: 0 0 0 5px #0a0a0c, 0 10px 24px rgba(0, 0, 0, .32);
+  }
+
+  .stepLabel {
+    padding-top: 0;
+  }
+
+  .stepLabel span {
+    font-size: 8px;
+    letter-spacing: .1em;
+  }
+
+  .stepLabel strong {
+    margin-top: 5px;
+    font-size: 24px;
+  }
+
+  .card {
+    min-height: 210px;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 23px 20px 25px;
+    border-radius: 18px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+  }
+
+  .icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .card h3 {
+    margin-bottom: 9px;
+    font-size: 23px;
+  }
+
+  .card p {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .railProgress {
+    transform: scaleY(1) !important;
+  }
+}

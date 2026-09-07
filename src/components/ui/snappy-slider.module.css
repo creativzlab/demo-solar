@@ -1,0 +1,221 @@
+.slider {
+  --slider-orange-start: #ff9a1f;
+  --slider-orange-mid: #ff7a00;
+  --slider-orange-end: #f15300;
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.label {
+  color: #766b63;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+.valueField {
+  min-width: 112px;
+  height: 38px;
+  padding-inline: 12px;
+  border: 1px solid #eadfd7;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  color: #766b63;
+  background: white;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85);
+}
+
+.valueField:focus-within {
+  border-color: var(--slider-orange-mid);
+  outline: 3px solid rgba(255, 122, 0, .14);
+}
+
+.valueField span {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.valueField input {
+  width: 64px;
+  border: 0;
+  outline: 0;
+  color: #15120f;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+  -moz-appearance: textfield;
+}
+
+.valueField input::-webkit-inner-spin-button,
+.valueField input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.trackArea {
+  position: relative;
+  height: 58px;
+}
+
+.track {
+  position: absolute;
+  top: 9px;
+  right: 0;
+  left: 0;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #e5ddd7;
+  box-shadow: inset 0 1px 2px rgba(81, 73, 66, .12);
+}
+
+.progress {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--slider-orange-start) 0%, var(--slider-orange-mid) 48%, var(--slider-orange-end) 100%);
+  box-shadow: 0 6px 18px rgba(185, 71, 0, .22);
+}
+
+.mark {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 255, 255, .84);
+  box-shadow: 0 0 0 1px rgba(81, 73, 66, .06);
+  transform: translateX(-.5px);
+}
+
+.range {
+  position: absolute;
+  z-index: 4;
+  top: -3px;
+  left: 0;
+  width: 100%;
+  height: 32px;
+  margin: 0;
+  cursor: grab;
+  appearance: none;
+  background: transparent;
+}
+
+.range:active { cursor: grabbing; }
+
+.range:focus-visible {
+  border-radius: 999px;
+  outline: 3px solid var(--slider-orange-mid);
+  outline-offset: 4px;
+}
+
+.range::-webkit-slider-runnable-track {
+  height: 8px;
+  background: transparent;
+}
+
+.range::-webkit-slider-thumb {
+  width: 32px;
+  height: 32px;
+  margin-top: -12px;
+  border: 0;
+  background: transparent;
+  appearance: none;
+}
+
+.range::-moz-range-track {
+  height: 8px;
+  border: 0;
+  background: transparent;
+}
+
+.range::-moz-range-progress { background: transparent; }
+
+.range::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+}
+
+.thumb {
+  position: absolute;
+  z-index: 3;
+  top: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.thumbArrow {
+  width: 0;
+  height: 0;
+  border-right: 6px solid transparent;
+  border-bottom: 7px solid var(--slider-orange-mid);
+  border-left: 6px solid transparent;
+  filter: drop-shadow(0 1px 1px rgba(185, 71, 0, .18));
+}
+
+.thumbSquare {
+  width: 14px;
+  height: 14px;
+  border: 2px solid white;
+  border-radius: 4px;
+  background: linear-gradient(135deg, var(--slider-orange-start) 0%, var(--slider-orange-mid) 45%, var(--slider-orange-end) 100%);
+  box-shadow: 0 4px 12px rgba(185, 71, 0, .32);
+}
+
+.thumbValue {
+  margin-top: 5px;
+  color: #15120f;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.ends {
+  margin-top: 1px;
+  display: flex;
+  justify-content: space-between;
+  color: #81756d;
+  font-size: 11px;
+}
+
+.dark .label { color: rgba(255, 255, 255, .72); }
+
+.dark .valueField {
+  border-color: rgba(255, 255, 255, .18);
+  color: rgba(255, 255, 255, .72);
+  background: rgba(255, 255, 255, .1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12);
+}
+
+.dark .valueField input { color: white; }
+.dark .track { background: rgba(255, 255, 255, .18); }
+.dark .mark { background: rgba(255, 255, 255, .44); box-shadow: none; }
+.dark .thumbValue { color: white; }
+.dark .ends { color: rgba(255, 255, 255, .58); }
+
+@media (max-width: 420px) {
+  .header { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .valueField { width: 100%; justify-content: space-between; }
+  .valueField input { flex: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress, .thumb { transition: none; }
+}
