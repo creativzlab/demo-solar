@@ -5,7 +5,7 @@ type BrandMarkProps = {
 
 export function BrandMark({ inverse = false, hideIcon = false }: BrandMarkProps) {
   return (
-    <span className={`brand ${inverse ? "brand--inverse" : ""}`} aria-label="Demanda Solar Infinita">
+    <span className={`brand ${inverse ? "brand--inverse" : ""}`} aria-label="Demanda Infinita">
       {!hideIcon && (
         <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
           <path d="M24 5 29.5 16.5 42 18l-9 8.5L35.5 39 24 33 12.5 39 15 26.5 6 18l12.5-1.5L24 5Z" />
@@ -13,7 +13,7 @@ export function BrandMark({ inverse = false, hideIcon = false }: BrandMarkProps)
         </svg>
       )}
       <span>
-        <strong>Demanda Solar</strong>
+        <strong>Demanda</strong>
         <small>Infinita</small>
       </span>
     </span>

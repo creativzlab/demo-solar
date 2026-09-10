@@ -7,7 +7,7 @@ export default function TermsPage() {
       <Link href="/"><ArrowLeft size={16} /> Voltar</Link>
       <p className="eyebrow">Demonstração</p>
       <h1>Termos de uso</h1>
-      <p>Demanda Solar Infinita é uma marca fictícia. Este site não vende, instala ou dimensiona sistemas fotovoltaicos e não representa uma empresa real.</p>
+      <p>Demanda Infinita é uma demonstração. Este site não vende, instala ou dimensiona sistemas fotovoltaicos e não representa uma empresa real.</p>
       <h2>Indicadores e garantias</h2>
       <p>Economia, prazo, satisfação, certificações, garantias e avaliações são exemplos de apresentação. Em um projeto real, todo dado deve ser substituído por evidência verificável e condições contratuais da integradora.</p>
       <h2>Uso do formulário</h2>

@@ -24,7 +24,7 @@ export function MinimalFooter() {
 
         <div className={styles.grid} data-reveal>
           <div className={styles.brandColumn}>
-            <a className={styles.brandLink} href="#top" aria-label="Demanda Solar Infinita — voltar ao início">
+            <a className={styles.brandLink} href="#top" aria-label="Demanda Infinita — voltar ao início">
               <BrandMark inverse />
             </a>
             <p>
@@ -54,7 +54,7 @@ export function MinimalFooter() {
         </div>
 
         <div className={styles.bottom} data-reveal="soft">
-          <p>© {year} Demanda Solar Infinita — demonstração</p>
+          <p>© {year} Demanda Infinita — demonstração</p>
           <p>demosolar.creativzlab.com</p>
         </div>
       </div>

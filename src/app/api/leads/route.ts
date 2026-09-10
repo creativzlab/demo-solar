@@ -44,7 +44,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const result = await acceptDemoLead();
+    const result = await acceptDemoLead(parsed.data);
     return Response.json({ ok: true, demoMode: result.demoMode });
   } catch (caught) {
     console.error(

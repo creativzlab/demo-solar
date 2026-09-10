@@ -6,15 +6,23 @@ const projectRoot = dirname(fileURLToPath(import.meta.url));
 
 const isDevelopment = process.env.NODE_ENV === "development";
 const cloudinaryMediaOrigin = "https://res.cloudinary.com";
+const ghlWidgetOrigins = [
+  "https://widgets.leadconnectorhq.com",
+  "https://services.leadconnectorhq.com",
+  "https://backend.leadconnectorhq.com",
+  "https://stcdn.leadconnectorhq.com",
+  "https://storage.googleapis.com",
+  "https://services.msgsndr.com",
+];
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""}`,
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "img-src 'self' data: blob:",
+  `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""} ${ghlWidgetOrigins.join(" ")}`,
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://stcdn.leadconnectorhq.com",
+  `img-src 'self' data: blob: ${ghlWidgetOrigins.join(" ")}`,
   "font-src 'self' data: https://fonts.gstatic.com",
   `media-src 'self' ${cloudinaryMediaOrigin}`,
-  `connect-src 'self' ${cloudinaryMediaOrigin}${isDevelopment ? " ws: wss:" : ""}`,
-  "frame-src 'none'",
+  `connect-src 'self' ${cloudinaryMediaOrigin} ${ghlWidgetOrigins.join(" ")}${isDevelopment ? " ws: wss:" : ""}`,
+  `frame-src 'self' ${ghlWidgetOrigins.join(" ")}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

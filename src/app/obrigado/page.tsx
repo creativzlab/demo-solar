@@ -12,7 +12,7 @@ import TubesCursor from "@/components/ui/tubes-cursor";
 import styles from "./obrigado.module.css";
 
 export const metadata: Metadata = {
-  title: "Solicitação recebida | Demanda Solar Infinita",
+  title: "Solicitação recebida | Demanda Infinita",
   description: "Entenda os próximos passos da sua análise de energia solar.",
 };
 

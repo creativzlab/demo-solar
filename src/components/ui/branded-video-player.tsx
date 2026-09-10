@@ -99,7 +99,7 @@ export default function BrandedVideoPlayer({ src, poster, title }: BrandedVideoP
 
       <div className={styles.brandBadge} aria-hidden="true">
         <span />
-        Demanda Solar
+        Demanda Infinita
       </div>
 
       {!isPlaying ? (
